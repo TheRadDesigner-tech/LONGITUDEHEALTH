@@ -2,11 +2,11 @@
 import React from 'react';
 
 const partners = [
-  { name: "Baylor Scott & White Health", logo: "/images/logos/baylor-scott-white.png" },
-  { name: "Providence", logo: "/images/logos/providence.png" },
-  { name: "Novant Health", logo: "/images/logos/novant-health.png" },
-  { name: "Memorial Hermann", logo: "/images/logos/memorial-hermann.png" },
-  { name: "Michigan Medicine", logo: "/images/logos/michigan-medicine.png" }
+  { name: "Baylor Scott & White Health", logo: "https://images.seeklogo.com/logo-png/42/1/baylor-scott-white-logo-png_seeklogo-424850.png" },
+  { name: "Providence", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Providence_Health_%26_Services_logo.svg/512px-Providence_Health_%26_Services_logo.svg.png" },
+  { name: "Novant Health", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Novant_Health_logo.svg/512px-Novant_Health_logo.svg.png" },
+  { name: "Memorial Hermann", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Memorial_Hermann_Health_System_logo.svg/512px-Memorial_Hermann_Health_System_logo.svg.png" },
+  { name: "Michigan Medicine", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Michigan_Medicine_logo.svg/512px-Michigan_Medicine_logo.svg.png" }
 ];
 
 const MarqueeItem: React.FC<{ name: string; logo: string }> = ({ name, logo }) => (
