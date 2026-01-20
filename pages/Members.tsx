@@ -73,7 +73,7 @@ const Members: React.FC = () => {
     {
       name: 'Baylor Scott & White Health',
       ceo: 'Pete McCanna, CEO',
-      logo: 'https://images.seeklogo.com/logo-png/42/1/baylor-scott-white-logo-png_seeklogo-424850.png',
+      logo: '/images/logos/baylor-scott-white.png',
       quote: 'Longitude Health Solutions will scale the next generation of capabilities faster and more effectively than if individual health systems attempted to do so themselves.',
       colorClass: 'text-primary',
       bgClass: 'bg-primary/5',
@@ -81,7 +81,7 @@ const Members: React.FC = () => {
     {
       name: 'Providence',
       ceo: 'Rod Hochman, MD, Former CEO',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Providence_Health_%26_Services_logo.svg/512px-Providence_Health_%26_Services_logo.svg.png',
+      logo: '/images/logos/providence.png',
       quote: 'By implementing solutions that benefit multiple health systems, we can drive down costs and ensure the sustainability of health care delivery.',
       colorClass: 'text-secondary',
       bgClass: 'bg-secondary/10',
@@ -89,7 +89,7 @@ const Members: React.FC = () => {
     {
       name: 'Novant Health',
       ceo: 'Carl S. Armato, President & CEO',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Novant_Health_logo.svg/512px-Novant_Health_logo.svg.png',
+      logo: '/images/logos/novant-health.png',
       quote: 'As a health care transformation leader, we recognize that the best ideas and our most successful initiatives are often a product of collaboration.',
       colorClass: 'text-primary',
       bgClass: 'bg-primary/5',
@@ -97,7 +97,7 @@ const Members: React.FC = () => {
     {
       name: 'Memorial Hermann',
       ceo: 'David L. Callender, MD, President & CEO',
-      logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Memorial_Hermann_Health_System_logo.svg/512px-Memorial_Hermann_Health_System_logo.svg.png',
+      logo: '/images/logos/memorial-hermann.png',
       quote: 'Health care requires new approaches. Through this collaborative approach, we aim to take the lead in designing solutions that drive operational transformation.',
       colorClass: 'text-secondary',
       bgClass: 'bg-secondary/10',
@@ -105,7 +105,7 @@ const Members: React.FC = () => {
     {
       name: 'University of Michigan Health',
       ceo: 'David C. Miller, MD, MPH, President',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Michigan_Medicine_logo.svg/512px-Michigan_Medicine_logo.svg.png',
+      logo: '/images/logos/michigan-medicine.png',
       quote: 'Collaborative innovation across leading health systems creates an unparalleled opportunity to reimagine health care—one that is more equitable and impactful.',
       colorClass: 'text-accent',
       bgClass: 'bg-accent/10',
