@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Longitude Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: '#16252C',
+              surface: '#1C2E36',
+              surfaceHighlight: '#253B45',
+              primary: '#E3E438',    // Yellow
+              secondary: '#4558A7',  // Purple
+              accent: '#53AACC',     // Light Blue
+              light: '#F9F4EA',      // Off-white
+              border: '#2A404B'
+            },
+            fontFamily: {
+              sans: ['Open Sans', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'], // Alternative for Travels Next
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'marquee': 'marquee 30s linear infinite',
+              'spin-slow': 'spin 180s linear infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .text-outline {
+        -webkit-text-stroke: 1px rgba(249, 244, 234, 0.3);
+        color: transparent;
+      }
+      .text-outline:hover {
+        -webkit-text-stroke: 1px rgba(227, 228, 56, 1);
+        color: rgba(227, 228, 56, 0.1);
+      }
+      .clip-diagonal {
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      }
+      
+      /* Pattern: Dots on Dark */
+      .pattern-dots {
+        background-color: #16252C;
+        background-image: radial-gradient(#2A404B 1.5px, transparent 1.5px);
+        background-size: 24px 24px;
+      }
+
+      /* Pattern: Grid on Yellow */
+      .pattern-grid-yellow {
+        background-color: #E3E438;
+        background-image: 
+          linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.05)),
+          linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.05));
+        background-size: 40px 40px;
+        background-position: 0 0, 20px 20px;
+      }
+
+      /* Pattern: Crosses on Purple */
+      .pattern-cross {
+        background-color: #4558A7;
+        background-image: radial-gradient(#53AACC 1px, transparent 1px);
+        background-size: 20px 20px;
+        position: relative;
+      }
+      .pattern-cross::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 5V15M5 10H15' stroke='rgba(0,0,0,0.1)' stroke-width='1'/%3E%3C/svg%3E");
+      }
+
+      body {
+        background-color: #16252C;
+        color: #F9F4EA;
+        font-family: 'Open Sans', sans-serif;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
