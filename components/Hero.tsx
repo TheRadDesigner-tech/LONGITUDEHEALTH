@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-display text-7xl md:text-[8rem] lg:text-[10rem] font-bold text-light tracking-tighter leading-[0.85] mb-8"
+            className="font-outline text-7xl md:text-[8rem] lg:text-[10rem] font-black text-light tracking-tighter leading-[0.85] mb-8"
           >
             LONGITUDE<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-light to-accent">HEALTH</span>
