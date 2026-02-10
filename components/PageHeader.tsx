@@ -12,13 +12,13 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, description, pattern = 'dots', align = 'center' }) => {
   const patternClasses = {
-    dots: 'pattern-dots',
-    cross: 'pattern-cross',
-    grid: 'pattern-grid-yellow'
+    dots: 'pattern-plus-ocean',
+    cross: 'pattern-plus-ocean',
+    grid: 'pattern-plus-ocean'
   };
 
   return (
-    <section className={`relative pt-40 pb-24 overflow-hidden bg-background ${patternClasses[pattern]}`}>
+    <section className={`relative pt-40 pb-24 overflow-hidden pattern-plus-ocean ${patternClasses[pattern]}`}>
        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none"></div>
        
        <div className={`relative z-10 max-w-[1200px] mx-auto px-6 lg:px-12 flex flex-col ${align === 'center' ? 'items-center text-center' : 'items-start text-left'}`}>

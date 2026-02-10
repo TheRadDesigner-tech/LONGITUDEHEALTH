@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center items-start pt-24 pb-16 overflow-hidden pattern-plus">
+    <section className="relative min-h-[85vh] flex flex-col justify-center items-start pt-24 pb-16 overflow-hidden pattern-plus-ocean">
       {/* Cinematic subtle glow background */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[200px] rounded-full pointer-events-none -z-10" />
       

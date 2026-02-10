@@ -120,7 +120,7 @@ const Members: React.FC = () => {
         pattern="dots"
       />
 
-      <section className="py-32 bg-background relative overflow-hidden">
+      <section className="py-32 pattern-plus-ocean relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <CollaborativeScale />
 

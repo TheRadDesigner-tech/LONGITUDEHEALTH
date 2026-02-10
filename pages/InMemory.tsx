@@ -14,7 +14,7 @@ const InMemory: React.FC = () => {
       />
       
       <section className="py-24 bg-surface relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full pattern-cross opacity-[0.03] pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-full h-full pattern-plus-ocean opacity-[0.03] pointer-events-none"></div>
         
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
           {/* Portrait Column */}
@@ -123,7 +123,7 @@ const InMemory: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-background border-t border-border text-center relative">
+      <section className="py-24 pattern-plus-ocean border-t border-border text-center relative">
         <div className="max-w-3xl mx-auto px-6">
           <Heart className="w-12 h-12 text-primary mx-auto mb-8 animate-pulse" />
           <p className="text-2xl text-slate-200 font-display font-bold mb-4">

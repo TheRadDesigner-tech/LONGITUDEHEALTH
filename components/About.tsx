@@ -33,7 +33,7 @@ const About: React.FC = () => {
       />
 
       {/* The Legend Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-24 pattern-plus-ocean relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none overflow-hidden">
           <Navigation className="absolute top-10 right-10 w-96 h-96 -rotate-12" />
           <Compass className="absolute bottom-10 left-10 w-64 h-64 rotate-45" />
@@ -132,7 +132,7 @@ const About: React.FC = () => {
 
       {/* Commitment Banner */}
       <section className="py-32 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 pattern-grid-yellow opacity-30" />
+        <div className="absolute inset-0 pattern-plus-ocean opacity-30" />
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}

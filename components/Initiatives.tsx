@@ -57,7 +57,7 @@ const SolutionDomainCard: React.FC<{
 
 const Initiatives: React.FC = () => {
   return (
-    <section className="py-24 bg-background relative z-0" id="solutions">
+    <section className="py-24 pattern-plus-ocean relative z-0" id="solutions">
       <div className="max-w-[1200px] mx-auto px-6 mb-24 relative z-10">
         
         <div className="mb-16">

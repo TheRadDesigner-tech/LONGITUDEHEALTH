@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Mission: React.FC = () => {
   return (
-    <section className="py-24 bg-background relative overflow-hidden border-b border-border">
+    <section className="py-24 pattern-plus-ocean relative overflow-hidden border-b border-border">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}

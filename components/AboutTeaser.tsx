@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const AboutTeaser: React.FC = () => {
   return (
     <section className="py-40 bg-surface relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-full h-full pattern-dots opacity-[0.03] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-full h-full pattern-plus-ocean opacity-[0.03] pointer-events-none"></div>
       <div className="max-w-[1440px] mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

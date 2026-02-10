@@ -12,7 +12,7 @@ const Board: React.FC = () => {
         subtitle="Governance"
         description="Our governing board ensures that Longitude Health remains true to its mission of serving health systems and patients, providing strategic oversight and direction."
       />
-      <section className="py-20 bg-light text-background pattern-dots">
+      <section className="py-20 bg-light text-background pattern-plus-ocean">
         <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {[

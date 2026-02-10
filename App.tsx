@@ -31,7 +31,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="w-full overflow-x-hidden bg-background min-h-screen flex flex-col">
+      <div className="w-full overflow-x-hidden pattern-plus-ocean min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow w-full relative">
           <Routes>

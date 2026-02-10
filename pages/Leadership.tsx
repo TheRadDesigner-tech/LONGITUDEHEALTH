@@ -15,7 +15,7 @@ const Leadership: React.FC = () => {
       />
       
       {/* Board of Directors Section */}
-      <section className="py-40 bg-background relative overflow-hidden">
+      <section className="py-40 pattern-plus-ocean relative overflow-hidden">
          <div className="max-w-[1400px] mx-auto px-6">
             <div className="mb-24">
                <motion.div 

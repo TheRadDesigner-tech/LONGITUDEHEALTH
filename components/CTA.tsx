@@ -8,7 +8,7 @@ const CTA: React.FC = () => {
     <section className="py-16 bg-surface relative overflow-hidden border-t border-white/5">
       {/* Cinematic subtle glow background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
-      <div className="absolute inset-0 pattern-dots opacity-[0.05] pointer-events-none"></div>
+      <div className="absolute inset-0 pattern-plus-ocean opacity-[0.05] pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <motion.div
