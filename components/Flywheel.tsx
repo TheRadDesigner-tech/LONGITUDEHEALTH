@@ -45,8 +45,8 @@ const SpeechBubble: React.FC<{
 
 const Flywheel: React.FC = () => {
   return (
-    <section className="py-32 pattern-plus-ocean relative overflow-hidden border-y border-white/5">
-      <div className="absolute inset-0 pattern-plus-ocean opacity-[0.03] pointer-events-none"></div>
+    <section className="py-32 bg-background relative overflow-hidden border-y border-white/5">
+      <div className="absolute inset-0 pattern-grid-yellow opacity-[0.03] pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         

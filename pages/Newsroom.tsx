@@ -82,7 +82,7 @@ const Newsroom: React.FC = () => {
         pattern="cross"
       />
       
-      <section className="pt-16 pb-40 pattern-plus-ocean relative overflow-hidden">
+      <section className="pt-16 pb-40 bg-background relative overflow-hidden pattern-plus">
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 border-b border-white/10 pb-10">

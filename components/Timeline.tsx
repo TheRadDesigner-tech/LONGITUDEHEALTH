@@ -8,7 +8,7 @@ const Timeline: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 pattern-plus-ocean overflow-hidden">
+    <section className="py-20 bg-background overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
         <h2 className="text-3xl font-display font-bold text-center mb-16 text-light">Our Journey</h2>
         <div className="relative">

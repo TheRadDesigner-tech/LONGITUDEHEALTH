@@ -16,7 +16,7 @@ const LongitudeFX: React.FC = () => {
       />
       
       {/* Verbatim About Section */}
-      <section className="py-24 pattern-plus-ocean relative overflow-hidden">
+      <section className="py-24 bg-background relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -103,7 +103,7 @@ const LongitudeFX: React.FC = () => {
       </section>
 
       {/* Verbatim Press Release Section */}
-      <section className="py-24 pattern-plus-ocean">
+      <section className="py-24 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div 
              initial={{ opacity: 0, y: 20 }}

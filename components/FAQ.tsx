@@ -8,7 +8,7 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 pattern-plus-ocean">
+    <section className="py-20 bg-background">
       <div className="max-w-3xl mx-auto px-6">
         <h2 className="text-3xl font-display font-bold text-center mb-12 text-light">Frequently Asked Questions</h2>
         <div className="space-y-6">

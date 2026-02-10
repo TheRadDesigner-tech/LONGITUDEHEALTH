@@ -21,7 +21,7 @@ const PressRelease: React.FC = () => {
          </div>
       </div>
       
-      <article className="py-20 pattern-plus-ocean">
+      <article className="py-20 bg-background">
         <div className="max-w-3xl mx-auto px-6 prose prose-invert prose-lg">
           <p className="lead text-xl text-slate-300 font-light mb-8">
             A consortium of leading U.S. health systems today announced the launch of Longitude Health, a transformative innovation engine designed to solve healthcare's most persistent challenges through collective action and system-level scale.

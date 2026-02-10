@@ -13,7 +13,7 @@ const Connect: React.FC = () => {
         pattern="grid"
       />
       
-      <section className="py-32 pattern-plus-ocean">
+      <section className="py-32 bg-background">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-24">
           <div className="space-y-12">
             <div>

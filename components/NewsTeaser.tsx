@@ -12,7 +12,7 @@ const NewsTeaser: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 pattern-plus-ocean border-t border-white/5">
+    <section className="py-32 bg-background border-t border-white/5">
       <div className="max-w-[1440px] mx-auto px-6">
         <div className="flex justify-between items-end mb-16">
           <div>

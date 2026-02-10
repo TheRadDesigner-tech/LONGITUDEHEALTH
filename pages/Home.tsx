@@ -131,7 +131,7 @@ const Home: React.FC = () => {
 
       <InvestmentRoadmap />
       
-      <section className="pattern-plus-ocean py-16 relative overflow-hidden">
+      <section className="bg-background py-16 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
         
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-10">

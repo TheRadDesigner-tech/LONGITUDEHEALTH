@@ -39,7 +39,7 @@ const StatBox: React.FC<{
 
 const CollaborativeScale: React.FC = () => {
   return (
-    <section className="py-24 pattern-plus-ocean relative overflow-hidden border-y border-white/[0.02]">
+    <section className="py-24 bg-background relative overflow-hidden border-y border-white/[0.02]">
       {/* Chart Background */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div className="h-full w-full" style={{ 

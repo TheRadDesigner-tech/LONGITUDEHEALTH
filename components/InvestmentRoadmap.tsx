@@ -85,8 +85,8 @@ const InvestmentRoadmap: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 pattern-plus-ocean relative overflow-hidden border-y border-white/5">
-      <div className="absolute inset-0 pattern-plus-ocean opacity-[0.03] pointer-events-none"></div>
+    <section className="py-24 bg-background relative overflow-hidden border-y border-white/5">
+      <div className="absolute inset-0 pattern-plus opacity-[0.03] pointer-events-none"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent hidden lg:block -z-10 mt-[-60px]"></div>
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">

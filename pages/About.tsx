@@ -28,7 +28,7 @@ const StrategicVisionCard: React.FC<{
     transition={{ delay, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     className="relative group bg-surfaceHighlight/10 border border-white/5 rounded-2xl p-6 md:p-8 overflow-hidden h-full flex flex-col hover:border-primary/40 hover:bg-surfaceHighlight/20 transition-all duration-700 shadow-xl"
   >
-    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pattern-plus-ocean pointer-events-none" />
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pattern-plus pointer-events-none" />
     
     <div className="relative z-10">
       <div className="flex justify-between items-start mb-6">
@@ -77,8 +77,8 @@ const About: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pattern-plus-ocean">
-        <div className="absolute inset-0 pattern-plus-ocean opacity-[0.03] pointer-events-none" />
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-background">
+        <div className="absolute inset-0 pattern-plus opacity-[0.03] pointer-events-none" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -108,7 +108,7 @@ const About: React.FC = () => {
       </section>
       
       {/* The Story - Timeline Style */}
-      <section className="py-20 pattern-plus-ocean relative overflow-hidden">
+      <section className="py-20 bg-background relative overflow-hidden">
         <div className="max-w-[1100px] mx-auto px-6 relative z-10">
           
           {/* Central Connecting Line */}
@@ -182,7 +182,7 @@ const About: React.FC = () => {
 
       {/* The Definition Banner */}
       <section className="py-16 bg-surface/20 border-y border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 pattern-plus-ocean opacity-[0.02]" />
+        <div className="absolute inset-0 pattern-plus opacity-[0.02]" />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -201,7 +201,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Vision Section - High Tech Grid */}
-      <section className="py-20 pattern-plus-ocean relative overflow-hidden">
+      <section className="py-20 bg-background relative overflow-hidden">
         <div className="max-w-[1100px] mx-auto px-6 relative z-10">
           <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-xl">

@@ -133,9 +133,9 @@ const WhatWeAreBuilding: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 pattern-plus-ocean relative overflow-hidden" id="solutions">
+    <section className="py-16 bg-background relative overflow-hidden" id="solutions">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-secondary/5 blur-[200px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 pattern-plus-ocean opacity-5 pointer-events-none"></div>
+      <div className="absolute inset-0 pattern-dots opacity-5 pointer-events-none"></div>
       
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         <div className="mb-12 text-center">

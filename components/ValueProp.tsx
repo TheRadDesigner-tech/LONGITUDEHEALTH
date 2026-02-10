@@ -28,7 +28,7 @@ const InfrastructureCard: React.FC<{
 
 const ValueProp: React.FC = () => {
   return (
-    <section className="py-32 pattern-plus-ocean relative overflow-hidden border-b border-border">
+    <section className="py-32 bg-background relative overflow-hidden border-b border-border">
       {/* Structural Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div className="h-full w-full" style={{ 
