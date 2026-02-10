@@ -1,172 +1,222 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Zap, Globe, Target, RefreshCw } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const Callout: React.FC<{
-  title?: string;
+const SpeechBubble: React.FC<{
   text: string;
-  position: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'success';
-  delay: number;
-}> = ({ title, text, position, variant = 'primary', delay }) => {
-  const themes = {
-    primary: "border-primary/30 bg-primary/5 text-primary",
-    secondary: "border-secondary/30 bg-secondary/5 text-secondary",
-    accent: "border-accent/30 bg-accent/5 text-accent",
-    success: "border-[#10B981]/30 bg-[#10B981]/5 text-[#10B981]"
-  };
-
+  className?: string;
+  tailPos?: 'left' | 'right' | 'bottom';
+  bgColor?: string;
+  borderColor?: string;
+  textColor?: string;
+  delay?: number;
+}> = ({ text, className = "", tailPos = 'left', bgColor = "bg-surfaceHighlight/50", borderColor = "border-white/10", textColor = "text-slate-300", delay = 0 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ delay, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`absolute ${position} p-6 rounded-2xl border backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] z-30 max-w-[280px] group hover:scale-105 transition-transform duration-500 ${themes[variant]}`}
+      transition={{ delay, duration: 0.5 }}
+      className={`relative p-5 rounded-2xl border ${bgColor} ${borderColor} ${className} backdrop-blur-md shadow-xl`}
     >
-      {title && <h5 className="font-display font-bold text-sm mb-2 text-light uppercase tracking-wider">{title}</h5>}
-      <p className="text-xs leading-relaxed font-light text-slate-300 group-hover:text-light transition-colors">{text}</p>
-      <div className={`absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10 bg-gradient-to-br from-transparent via-${variant}/20 to-transparent`}></div>
+      <p className={`${textColor} text-sm font-medium leading-relaxed tracking-tight`}>{text}</p>
+      
+      {tailPos === 'left' && (
+        <svg className="absolute top-1/2 -left-3 -translate-y-1/2 w-3 h-4" viewBox="0 0 12 16">
+          <path d="M12 0 L0 8 L12 16 Z" className={`fill-current ${bgColor.replace('bg-', 'text-')}`} />
+          <path d="M12 0 L0 8 L12 16" fill="none" className={`stroke-current ${borderColor.replace('border-', 'text-')}`} strokeWidth="1" />
+        </svg>
+      )}
+      {tailPos === 'right' && (
+        <svg className="absolute top-1/2 -right-3 -translate-y-1/2 w-3 h-4" viewBox="0 0 12 16">
+          <path d="M0 0 L12 8 L0 16 Z" className={`fill-current ${bgColor.replace('bg-', 'text-')}`} />
+          <path d="M0 0 L12 8 L0 16" fill="none" className={`stroke-current ${borderColor.replace('border-', 'text-')}`} strokeWidth="1" />
+        </svg>
+      )}
+      {tailPos === 'bottom' && (
+        <svg className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-3" viewBox="0 0 24 12">
+          <path d="M0 0 L12 12 L24 0 Z" className={`fill-current ${bgColor.replace('bg-', 'text-')}`} />
+          <path d="M0 0 L12 12 L24 0" fill="none" className={`stroke-current ${borderColor.replace('border-', 'text-')}`} strokeWidth="1" />
+        </svg>
+      )}
     </motion.div>
   );
 };
 
 const Flywheel: React.FC = () => {
   return (
-    <section className="py-40 bg-background relative overflow-hidden border-b border-border">
-      {/* Background Ambience */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-secondary/5 blur-[160px] rounded-full animate-pulse-slow"></div>
-        <div className="absolute top-1/4 left-1/4 w-[700px] h-[700px] bg-primary/5 blur-[140px] rounded-full"></div>
-      </div>
+    <section className="py-32 bg-background relative overflow-hidden border-y border-white/5">
+      <div className="absolute inset-0 pattern-grid-yellow opacity-[0.03] pointer-events-none"></div>
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary mb-8"
-          >
-            <RefreshCw className="w-4 h-4 animate-spin-slow" />
-            <span className="text-[10px] font-mono tracking-[0.4em] uppercase font-bold">The Strategic Engine</span>
-          </motion.div>
-          
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        
+        <div className="mb-24 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-6xl md:text-[6rem] lg:text-[7.5rem] font-display font-bold text-light tracking-tighter leading-none"
+            className="text-4xl md:text-6xl font-display font-light text-accent lowercase tracking-tighter leading-[0.9] max-w-5xl mx-auto"
           >
-            THE <span className="text-primary italic">FLYWHEEL</span>
+            Building out the portfolio: <br/>
+            <span className="text-light font-normal">Momentum begins with quick wins and compounds as the flywheel turns</span>
           </motion.h2>
         </div>
 
-        <div className="relative h-[800px] flex items-center justify-center">
-          {/* Animated SVG Ring System */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <svg className="w-[850px] h-[850px] overflow-visible" viewBox="0 0 100 100">
-              <defs>
-                <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#E3E438" stopOpacity="0.3" />
-                  <stop offset="50%" stopColor="#4558A7" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#53AACC" stopOpacity="0.3" />
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-                  <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
+        <div className="relative min-h-[800px] flex items-center justify-center">
+          
+          <div className="absolute left-0 lg:left-12 top-0 z-20 w-full max-w-[320px] space-y-12">
+            <SpeechBubble 
+              text="Longitude Rx (Live) validates the model, proving that systems can own the value chain."
+              bgColor="bg-primary/10"
+              borderColor="border-primary/30"
+              textColor="text-primary"
+              tailPos="right"
+              delay={0.2}
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="p-8 rounded-3xl border-2 border-primary/40 bg-primary/5 backdrop-blur-xl relative shadow-2xl"
+            >
+              <h4 className="text-primary font-black text-xs mb-4 uppercase tracking-[0.1em]">
+                Quick wins jump-start the cycle. <br/>
+                <span className="font-light text-slate-400 normal-case italic">In the near-term, we prioritize utilities that are:</span>
+              </h4>
+              <ul className="space-y-4">
+                <li className="flex gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    <span className="font-black text-primary uppercase text-[10px] tracking-tighter">Fast to activate</span> with immediate clinical impact (Rx)
+                  </p>
+                </li>
+                <li className="flex gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    <span className="font-black text-primary uppercase text-[10px] tracking-tighter">Scalable Efficiency</span> through shared services (FX)
+                  </p>
+                </li>
+              </ul>
+              <svg className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-4" viewBox="0 0 32 16">
+                <path d="M0 0 L16 16 L32 0 Z" fill="rgba(227, 228, 56, 0.05)" />
+                <path d="M0 0 L16 16 L32 0" fill="none" stroke="rgba(227, 228, 56, 0.4)" strokeWidth="2" />
+              </svg>
+            </motion.div>
+          </div>
 
-              <motion.circle
-                cx="50" cy="50" r="42"
-                fill="none"
-                stroke="rgba(255,255,255,0.02)"
-                strokeWidth="0.2"
-                strokeDasharray="1 6"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 240, repeat: Infinity, ease: "linear" }}
-              />
-              
-              <motion.circle
-                cx="50" cy="50" r="32"
-                fill="none"
-                stroke="url(#ringGradient)"
-                strokeWidth="12"
-                strokeDasharray="14 3"
-                filter="url(#glow)"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              />
+          <div className="absolute right-0 lg:right-12 top-10 z-20 w-full max-w-[320px] space-y-10">
+            <SpeechBubble 
+              text="Expand Network: Connecting Payors & Providers via integrated data."
+              tailPos="left"
+              delay={0.6}
+            />
+            <SpeechBubble 
+              text="Amplify Portfolio: Specialty-as-a-Service scales clinical access."
+              tailPos="left"
+              delay={0.8}
+            />
+            <SpeechBubble 
+              text="Compound Synergies: Enterprise Services Hub (FX) drives multi-system efficiency."
+              tailPos="left"
+              delay={1.0}
+            />
+          </div>
 
-              {[0, 60, 120, 180, 240, 300].map((rot) => (
-                <motion.path
-                  key={rot}
-                  d="M50 16 A34 34 0 0 1 84 50"
-                  fill="none"
-                  stroke="#E3E438"
-                  strokeWidth="0.75"
-                  strokeOpacity="0.6"
-                  transform={`rotate(${rot} 50 50)`}
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 0.4 }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          <div className="relative w-[500px] h-[500px] md:w-[600px] md:h-[600px]">
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-[-60px] border-[1.5px] border-dashed border-secondary/20 rounded-full flex items-center justify-center pointer-events-none"
+            >
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2">
+                 <svg width="24" height="24" viewBox="0 0 24 24" className="text-secondary opacity-40">
+                   <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                 </svg>
+              </div>
+            </motion.div>
+
+            <svg className="w-full h-full transform -rotate-45" viewBox="0 0 400 400">
+              <g className="fill-surface/80 stroke-white/5 stroke-[2]">
+                {/* Segment 1: Expand Network -> Payor-Provider */}
+                <path 
+                  d="M200,20 A180,180 0 0,1 380,200 L320,200 A120,120 0 0,0 200,80 Z" 
+                  className="hover:fill-primary/20 transition-colors duration-500 cursor-pointer"
                 />
-              ))}
+                {/* Segment 2: Amplify Portfolio -> Specialty-as-a-Service */}
+                <path 
+                  d="M380,200 A180,180 0 0,1 200,380 L200,320 A120,120 0 0,0 320,200 Z" 
+                  className="hover:fill-accent/20 transition-colors duration-500 cursor-pointer"
+                />
+                {/* Segment 3: Compound Synergies -> Enterprise FX */}
+                <path 
+                  d="M200,380 A180,180 0 0,1 20,200 L80,200 A120,120 0 0,0 200,320 Z" 
+                  className="hover:fill-secondary/20 transition-colors duration-500 cursor-pointer"
+                />
+                {/* Segment 4: Demonstrate Value -> Pharmacy Rx */}
+                <path 
+                  d="M20,200 A180,180 0 0,1 200,20 L200,80 A120,120 0 0,0 80,200 Z" 
+                  className="hover:fill-primary/40 transition-colors duration-500 cursor-pointer"
+                />
+              </g>
+              
+              <g fill="#4558A7" opacity="0.6">
+                <polygon points="200,20 215,35 215,5" transform="rotate(45, 200, 200)" />
+                <polygon points="380,200 365,185 395,185" transform="rotate(45, 200, 200)" />
+                <polygon points="200,380 185,365 185,395" transform="rotate(45, 200, 200)" />
+                <polygon points="20,200 35,215 35,185" transform="rotate(45, 200, 200)" />
+              </g>
             </svg>
-          </div>
 
-          <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            className="relative z-20 w-64 h-64 md:w-80 md:h-80"
-          >
-            <div className="absolute inset-0 bg-primary/15 blur-3xl rounded-full animate-pulse-slow"></div>
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-surface to-background border-4 border-white/5 shadow-2xl flex flex-col items-center justify-center text-center p-12 relative overflow-hidden group">
-               <Globe className="w-12 h-12 text-primary mb-6 opacity-80" />
-               <span className="text-light font-display font-bold text-3xl md:text-5xl leading-tight uppercase tracking-tighter">
-                MEMBER<br/><span className="text-primary italic">IMPACT</span>
-               </span>
-               <div className="mt-6 w-20 h-1 bg-primary/40 rounded-full"></div>
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <div className="absolute top-[14%] text-slate-400 font-display font-bold text-[10px] md:text-sm uppercase tracking-widest text-center">Payor-Provider <br/> Network</div>
+              <div className="absolute right-[8%] rotate-90 text-slate-400 font-display font-bold text-[10px] md:text-sm uppercase tracking-widest text-center">Specialty <br/> Care</div>
+              <div className="absolute bottom-[14%] text-slate-400 font-display font-bold text-[10px] md:text-sm uppercase tracking-widest text-center">Enterprise <br/> FX Hub</div>
+              <div className="absolute left-[8%] -rotate-90 text-slate-400 font-display font-bold text-[10px] md:text-sm uppercase tracking-widest text-center">Pharmacy <br/> (Rx)</div>
             </div>
-          </motion.div>
 
-          <div className="absolute inset-0 pointer-events-none">
-             {[
-               { label: "Scale Network", pos: "top-[8%] left-1/2 -translate-x-1/2", icon: Globe },
-               { label: "Amplify Portfolio", pos: "right-[8%] top-1/2 -translate-y-1/2", icon: Zap },
-               { label: "Compound Synergy", pos: "bottom-[8%] left-1/2 -translate-x-1/2", icon: Target },
-               { label: "Demonstrate Value", pos: "left-[8%] top-1/2 -translate-y-1/2", icon: Sparkles }
-             ].map((phase, i) => (
-               <motion.div
-                 key={i}
-                 initial={{ opacity: 0 }}
-                 whileInView={{ opacity: 1 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.5 + i * 0.1 }}
-                 className={`absolute ${phase.pos} flex flex-col items-center gap-4`}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-surfaceHighlight to-background border-4 border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5)] flex items-center justify-center text-center p-8 relative z-10 overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
+                <h4 className="text-light text-2xl md:text-3xl font-display font-black leading-none uppercase tracking-tighter relative z-10">
+                  Member <br/> <span className="text-primary italic">Impact</span>
+                </h4>
+              </motion.div>
+            </div>
+
+            <div className="absolute bottom-0 -left-20 md:-left-32 z-30">
+               <motion.div 
+                initial={{ x: -150, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
+                className="relative"
                >
-                 <div className="w-10 h-10 rounded-full bg-background border border-white/10 flex items-center justify-center shadow-lg">
-                    <phase.icon className="w-5 h-5 text-slate-400" />
+                 <div className="relative flex items-center">
+                    <div className="bg-primary h-16 md:h-20 px-12 md:px-20 flex items-center shadow-[20px_20px_60px_rgba(0,0,0,0.4)] clip-ribbon">
+                       <span className="text-background font-display font-black text-lg md:text-2xl uppercase tracking-[0.2em] whitespace-nowrap">Pursue Quick Wins</span>
+                    </div>
+                    <svg className="h-16 md:h-20 w-12 md:w-16 -ml-1 text-primary drop-shadow-xl" viewBox="0 0 40 80">
+                       <path d="M0 0 L40 40 L0 80 Z" fill="currentColor" />
+                    </svg>
+                    <div className="absolute -left-4 bottom-[-16px] w-4 h-4 bg-primary/50 skew-x-[45deg] -z-10" />
                  </div>
-                 <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.6em] text-slate-500 whitespace-nowrap bg-background/80 px-4 py-1 backdrop-blur-md rounded-full border border-white/5">
-                   {phase.label}
-                 </span>
                </motion.div>
-             ))}
+            </div>
           </div>
 
-          <Callout variant="accent" position="top-[0%] right-[5%]" title="Credentialing Scale" text="Immediate value proofs attract market leaders, rapidly accelerating collaboration." delay={0.6} />
-          <Callout variant="secondary" position="top-1/2 -translate-y-1/2 right-[-2%]" title="Portfolio Density" text="Operational scale drives unit cost reductions, generating required liquidity." delay={0.8} />
-          <Callout variant="primary" position="bottom-[0%] right-[5%]" title="Operational Halo" text="Integrated services yield profound efficiency, enabling zero-friction adoption." delay={1.0} />
-          <Callout variant="secondary" position="top-[8%] left-[5%]" title="Cycle Acceleration" text="Each successful loop validates ownership, compounding the competitive moat." delay={1.2} />
-          <Callout variant="success" title="Strategic Entry" position="bottom-[10%] left-[-2%]" text="We prioritize utilities that deliver high-velocity financial and clinical impact." delay={1.4} />
         </div>
       </div>
+      
+      <style>{`
+        .clip-ribbon {
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 8% 50%);
+        }
+      `}</style>
     </section>
   );
 };

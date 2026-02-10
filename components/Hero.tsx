@@ -1,103 +1,105 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  const { scrollY } = useScroll();
+  const driftY = useTransform(scrollY, [0, 1000], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center pt-20 overflow-hidden pattern-dots">
-      {/* Background Effect - Right Side Globe */}
-      <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] z-0 pointer-events-none md:translate-x-[10%] flex items-center justify-center">
-        <div className="w-full h-full relative flex items-center justify-center scale-110">
-          <div className="absolute inset-0 bg-gradient-radial from-secondary/20 via-primary/5 to-transparent rounded-full blur-3xl scale-125"></div>
+    <section className="relative min-h-[85vh] flex flex-col justify-center items-start pt-24 pb-16 overflow-hidden pattern-plus">
+      {/* Cinematic subtle glow background */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[200px] rounded-full pointer-events-none -z-10" />
+      
+      {/* Technical Globe */}
+      <motion.div 
+        style={{ y: driftY, opacity }}
+        className="absolute right-[-10%] md:right-[-5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] z-0 pointer-events-none perspective-[2000px]"
+      >
+        <div className="relative w-full h-full flex items-center justify-center transform rotate-x-[65deg] rotate-y-[-25deg]">
+          <div className="absolute inset-0 border-[1px] border-primary/30 rounded-full shadow-[0_0_120px_rgba(227,228,56,0.1)]"></div>
           
-          {/* Animated Globe SVG */}
-          <motion.svg 
-            className="w-full h-full max-w-[800px] max-h-[800px] opacity-60" 
-            viewBox="0 0 400 400" 
-            xmlns="http://www.w3.org/2000/svg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
-            transition={{ duration: 1 }}
-          >
-            <defs>
-              <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4558A7" stopOpacity="0.4" />
-                <stop offset="50%" stopColor="#53AACC" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#E3E438" stopOpacity="0.4" />
-              </linearGradient>
-            </defs>
-
-            {/* Rotating Group */}
-            <g className="origin-center animate-spin-slow">
-              {/* Outer Rings */}
-              <circle cx="200" cy="200" r="190" stroke="#2A404B" strokeWidth="1" strokeDasharray="4 4" fill="none" opacity="0.5" />
-              <circle cx="200" cy="200" r="160" stroke="#2A404B" strokeWidth="1" fill="none" opacity="0.3" />
-
-              {/* Longitudinal Lines (Ellipses) */}
-              <ellipse cx="200" cy="200" rx="60" ry="160" stroke="url(#globeGradient)" strokeWidth="1.5" fill="none" opacity="0.8" />
-              <ellipse cx="200" cy="200" rx="100" ry="160" stroke="url(#globeGradient)" strokeWidth="1.5" fill="none" opacity="0.6" />
-              <ellipse cx="200" cy="200" rx="140" ry="160" stroke="url(#globeGradient)" strokeWidth="1.5" fill="none" opacity="0.4" />
-              <line x1="200" y1="40" x2="200" y2="360" stroke="#E3E438" strokeWidth="2" opacity="0.8" />
-
-              {/* Latitudinal Lines */}
-              <path d="M60 200 Q200 280 340 200" fill="none" stroke="#53AACC" strokeWidth="1" opacity="0.4" />
-              <path d="M60 200 Q200 120 340 200" fill="none" stroke="#53AACC" strokeWidth="1" opacity="0.4" />
-            </g>
-
-            {/* Counter-Rotating Elements */}
-             <g className="origin-center" style={{ animation: 'spin 60s linear infinite reverse' }}>
-                <circle cx="200" cy="200" r="180" stroke="#E3E438" strokeWidth="1" strokeDasharray="10 20" fill="none" opacity="0.3" />
-                {/* Orbital dots */}
-                <circle cx="380" cy="200" r="4" fill="#E3E438" />
-             </g>
-          </motion.svg>
-
-          <div className="absolute inset-0 bg-gradient-to-l from-background/0 via-background/20 to-background"></div>
-        </div>
-      </div>
-
-      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6 h-full items-center">
-        <div className="col-span-12 md:col-span-9 flex flex-col justify-center">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 self-start px-4 py-1.5 mb-8 rounded-full bg-primary text-background shadow-lg shadow-primary/20"
+            animate={{ rotateZ: 360 }}
+            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 flex items-center justify-center"
           >
-            <span className="w-2 h-2 rounded-full bg-background animate-pulse"></span>
-            <span className="text-xs font-mono font-bold tracking-widest uppercase">Redefining Healthcare</span>
+            {[0.1, 0.3, 0.5, 0.7, 0.9].map((scale) => (
+              <div key={`long-${scale}`} className="absolute inset-0 border-[0.5px] border-primary/40 rounded-full" style={{ transform: `scaleX(${scale})` }}></div>
+            ))}
+            {[0.1, 0.3, 0.5, 0.7, 0.9].map((scale) => (
+              <div key={`lat-${scale}`} className="absolute inset-0 border-[0.5px] border-primary/40 rounded-full" style={{ transform: `scaleY(${scale})` }}></div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            animate={{ scale: [1, 1.05, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute w-2/3 h-2/3 bg-primary/20 blur-[150px] rounded-full"
+          ></motion.div>
+        </div>
+      </motion.div>
+
+      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 lg:px-12">
+        <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-[1px] bg-primary"></div>
+              <span className="text-[9px] font-mono tracking-[0.5em] uppercase font-black text-primary">Latitude for Healthcare</span>
+            </div>
+            
+            <h1 className="font-display font-black tracking-tight leading-[0.9] mb-8">
+              <span className="block text-light text-3xl md:text-5xl lg:text-6xl uppercase">
+                REVOLUTIONIZING
+              </span>
+              <span className="block text-primary italic text-3xl md:text-5xl lg:text-6xl uppercase -mt-1 md:-mt-2">
+                HEALTH CARE
+              </span>
+            </h1>
           </motion.div>
           
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-outline text-7xl md:text-[8rem] lg:text-[10rem] font-black text-light tracking-tighter leading-[0.85] mb-8"
-          >
-            LONGITUDE<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-light to-accent">HEALTH</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-slate-300 font-light leading-snug max-w-2xl mb-12 border-l-4 border-primary pl-6"
+            className="flex items-start gap-6 mb-12"
           >
-            A transformation engine built by major U.S. health systems to solve healthcare's biggest challenges together.
-          </motion.p>
+            <div className="w-[1px] h-14 bg-primary/40 shrink-0 mt-2"></div>
+            <p className="text-sm md:text-base text-slate-300 font-light leading-snug max-w-lg tracking-tight">
+              We build health system-backed solutions to solve health care's most complex challenges.
+            </p>
+          </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap gap-4"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-5"
           >
-            <button className="px-10 py-4 bg-primary text-background font-bold rounded-full hover:bg-white transition-colors text-sm tracking-widest uppercase shadow-xl shadow-primary/10">
-              Our Initiatives
-            </button>
-            <button className="px-10 py-4 bg-transparent border border-primary/30 text-primary font-medium rounded-full hover:bg-primary/10 transition-all text-sm tracking-widest uppercase backdrop-blur-sm">
-              Our Vision
-            </button>
+            <Link to="/solutions">
+              <motion.button 
+                whileHover={{ scale: 1.02, backgroundColor: '#ffffff', color: '#000000' }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 bg-primary text-background font-black rounded-full transition-all text-[9px] tracking-[0.3em] uppercase shadow-xl shadow-primary/10"
+              >
+                Explore Portfolio
+              </motion.button>
+            </Link>
+            
+            <Link to="/about">
+              <motion.button 
+                whileHover={{ scale: 1.02, borderColor: '#E3E438', color: '#E3E438' }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 border border-white/20 text-white font-black rounded-full transition-all text-[9px] tracking-[0.3em] uppercase"
+              >
+                Our Origin Story
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>

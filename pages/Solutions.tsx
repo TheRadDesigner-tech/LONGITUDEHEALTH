@@ -1,9 +1,8 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
-import Initiatives from '../components/Initiatives';
-import Flywheel from '../components/Flywheel';
+import WhatWeAreBuilding from '../components/WhatWeAreBuilding';
 import CTA from '../components/CTA';
-import Marquee from '../components/Marquee';
+import { motion } from 'framer-motion';
 
 const Solutions: React.FC = () => {
   return (
@@ -14,13 +13,9 @@ const Solutions: React.FC = () => {
         description="We build platforms that solve the fragmentation of healthcare. From pharmacy to finance, our solutions are designed to be deployed once and scaled everywhere."
       />
       
-      {/* Horizontal Partner Scrolling Bar - Added for consistent branding and trust */}
-      <Marquee />
+      {/* Portfolio section using the 4-column tombstone grid */}
+      <WhatWeAreBuilding />
 
-      {/* The Shortened/Redesigned Strategic Flywheel */}
-      <Flywheel />
-      
-      <Initiatives />
       <CTA />
     </>
   );

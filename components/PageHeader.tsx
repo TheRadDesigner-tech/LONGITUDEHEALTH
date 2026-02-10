@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
 interface PageHeaderProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   description: string;
   pattern?: 'dots' | 'cross' | 'grid';
@@ -10,25 +11,32 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, description, pattern = 'dots', align = 'center' }) => {
+  const patternClasses = {
+    dots: 'pattern-dots',
+    cross: 'pattern-cross',
+    grid: 'pattern-grid-yellow'
+  };
+
   return (
-    <section className={`relative pt-40 pb-20 overflow-hidden ${pattern === 'dots' ? 'pattern-dots' : pattern === 'cross' ? 'pattern-cross' : 'pattern-grid-yellow'}`}>
-       {pattern === 'grid' && <div className="absolute inset-0 bg-primary/90 mix-blend-multiply pointer-events-none"></div>}
-       <div className={`relative z-10 max-w-[1440px] mx-auto px-6 flex flex-col ${align === 'center' ? 'items-center text-center' : 'items-start text-left'}`}>
+    <section className={`relative pt-40 pb-24 overflow-hidden bg-background ${patternClasses[pattern]}`}>
+       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none"></div>
+       
+       <div className={`relative z-10 max-w-[1200px] mx-auto px-6 lg:px-12 flex flex-col ${align === 'center' ? 'items-center text-center' : 'items-start text-left'}`}>
         {subtitle && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`inline-block px-4 py-1 mb-6 rounded-full border ${pattern === 'grid' ? 'border-black/20 bg-black/5 text-black' : 'border-primary/20 bg-primary/10 text-primary'} backdrop-blur-sm`}
+            className="inline-block px-4 py-1 mb-6 rounded-full border border-primary/20 bg-primary/5 text-primary backdrop-blur-md"
           >
-            <span className="text-xs font-mono tracking-widest uppercase font-bold">{subtitle}</span>
+            <span className="text-[9px] font-mono tracking-[0.3em] uppercase font-black italic">{subtitle}</span>
           </motion.div>
         )}
         
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className={`font-display text-5xl md:text-7xl font-bold mb-6 tracking-tight ${pattern === 'grid' ? 'text-background' : 'text-light'}`}
+          transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tighter leading-[0.95] text-light uppercase"
         >
           {title}
         </motion.h1>
@@ -36,8 +44,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, description, p
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className={`text-lg md:text-xl font-light max-w-3xl leading-relaxed ${pattern === 'grid' ? 'text-surface' : 'text-slate-300'}`}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="text-lg md:text-xl font-light max-w-2xl leading-snug text-slate-300 tracking-tight"
         >
           {description}
         </motion.p>
